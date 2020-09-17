@@ -57,6 +57,6 @@ target_include_directories( ${TARGET_NAME} PUBLIC
 
 
 install(TARGETS ${TARGET_NAME} RUNTIME DESTINATION bin)
-
+install (PROGRAMS ${DISCORD_GAME_SDK}/lib/x86_64/discord_game_sdk.so DESTINATION lib)
 
 
