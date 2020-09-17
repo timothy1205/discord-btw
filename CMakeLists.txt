@@ -50,12 +50,6 @@ target_link_libraries( ${TARGET_NAME} ${LIB_NAME} )
 target_include_directories( ${TARGET_NAME} PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR} )
 
-      #add_custom_command( TARGET ${TARGET_NAME} POST_BUILD
-      # COMMAND ${CMAKE_COMMAND} -E copy_if_different
-      # "${PROJECT_SOURCE_DIR}/source/discord_game_sdk.so"
-      # $<TARGET_FILE_DIR:${TARGET_NAME}> )
-
-
 install(TARGETS ${TARGET_NAME} RUNTIME DESTINATION bin)
 install (PROGRAMS ${DISCORD_GAME_SDK}/lib/x86_64/discord_game_sdk.so DESTINATION lib)
 

@@ -5,10 +5,8 @@ set( TARGET_NAME ${TARGET_PREFIX} )
 set( DISCORD_INSTALL_DIR ${DISTRIBUTABLE_INSTALL_DIR} )
 
 message("Next: ${CMAKE_CURRENT_SOURCE_DIR}")
-#configure_file( ${CMAKE_CURRENT_SOURCE_DIR}/discord_game_sdk.so ${CMAKE_CURRENT_BINARY_DIR} COPYONLY )
 add_library( dsdk_lib_import SHARED IMPORTED )
 set_target_properties( dsdk_lib_import PROPERTIES IMPORTED_LOCATION ${CMAKE_CURRENT_BINARY_DIR}/discord_game_sdk.so )
-#install( FILES ${CMAKE_CURRENT_BINARY_DIR}/discord_game_sdk.so DESTINATION ./${DISCORD_INSTALL_DIR} COMPONENT DIST )
 
 add_library( ${LIB_NAME} SHARED
   achievement_manager.cpp achievement_manager.h
