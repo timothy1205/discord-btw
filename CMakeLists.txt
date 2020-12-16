@@ -11,6 +11,9 @@ set( CMAKE_DISABLE_SOURCE_CHANGES ON )
 set( CMAKE_CXX_STANDARD 17 )
 set( CMAKE_CXX_STANDARD_REQUIRED ON )
 
+# Compile commands for vim YCM
+set( CMAKE_EXPORT_COMPILE_COMMANDS ON )
+
 # Name the project and set a prefix for naming internal targets and variables
 project( discord-btw VERSION 0.0.1 LANGUAGES CXX )
 set( TARGET_PREFIX ${PROJECT_NAME}-lib )
@@ -52,5 +55,4 @@ target_include_directories( ${TARGET_NAME} PUBLIC
 
 install(TARGETS ${TARGET_NAME} RUNTIME DESTINATION bin)
 install (PROGRAMS ${DISCORD_GAME_SDK}/lib/x86_64/discord_game_sdk.so DESTINATION lib)
-
 
