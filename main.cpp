@@ -1,5 +1,10 @@
+#include <csignal>
 #include <unistd.h>
 #include "discord.h"
+
+namespace {
+  bool interrupted = false;
+}
 
 int main() {
     discord::Core* core{};
@@ -9,11 +14,13 @@ int main() {
     activity.GetAssets().SetLargeImage("logo");
     core->ActivityManager().UpdateActivity(activity, [](discord::Result result) {});
 
-    while (true) {
+    std::signal(SIGINT, [](int) {interrupted = true; });
+
+    while (!interrupted) {
         try {
             core->RunCallbacks();
         } catch (discord::Result result) {}
-        sleep(1);
+        sleep(16);
     }
     return 0;
 }
